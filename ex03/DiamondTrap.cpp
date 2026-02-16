@@ -4,6 +4,11 @@
 #include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap() {
+	ClapTrap::_name = "noname_clap_name";
+	this->_name = "noname";
+	this->_hit_points = FragTrap::_hit_points;
+	this->_energy_points = ScavTrap::_energy_points;
+	this->_attack_damage = FragTrap::_attack_damage;
 	std::cout << "DiamondTrap default construtor called" << std::endl;
 };
 
@@ -17,23 +22,28 @@ DiamondTrap::DiamondTrap(std::string name) :
 	this->_hit_points = FragTrap::_hit_points;
 	this->_energy_points = ScavTrap::_energy_points;
 	this->_attack_damage = FragTrap::_attack_damage;
-	std::cout << "DiamondTrap constructor called and name set" << std::endl;
+	std::cout << "DiamondTrap constructor called and name " << name << " set" << std::endl;
 };
+
+DiamondTrap::DiamondTrap(const DiamondTrap& other) :
+		ClapTrap(other), FragTrap(other), ScavTrap(other) {
+	std::cout << "DiamondTrap copy constructor called" << std::endl;
+	this->_name = other._name;
+}
+
+DiamondTrap& DiamondTrap::operator=(const DiamondTrap& other) {
+	std::cout << "DiamondTrap copy assignment operator called" << std::endl;
+	if (this == &other)
+		return *this;
+	this->_name = other._name;
+	this->_hit_points = other._hit_points;
+	this->_energy_points = other._energy_points;
+	this->_attack_damage = other._attack_damage;
+	return *this;
+}
 
 void DiamondTrap::attack(const std::string& target) {
 	ScavTrap::attack(target);
-
-	// if (this->_hit_points <= 0) {
-	// 	std::cout << "Cannot attack. Hit point is not enough." << std::endl;
-	// 	return;
-	// }
-	// if (this->_energy_points <= 0) {
-	// 	std::cout << "Cannot attack. Energy point is not enough." << std::endl;
-	// 	return;
-	// }
-	std::cout << "DiamondTrap " << this->_name << " attacks "
-			  << target << ", causing " << this->_attack_damage
-			  << " points of damage!" << std::endl;
 }
 
 // void FragTrap::takeDamage(unsigned int amount) {
@@ -58,6 +68,9 @@ void DiamondTrap::attack(const std::string& target) {
 // }
 
 void DiamondTrap::whoAmI() {
-	std::cout << "My name is " << this->_name
-		<< " and my ClapTrap name is " << ClapTrap::_name << std::endl;
+	if (this->_hit_points > 0)
+	{
+		std::cout << "My name is " << this->_name
+				  << " and my ClapTrap name is " << ClapTrap::_name << std::endl;
+	}
 }

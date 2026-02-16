@@ -9,8 +9,18 @@ ScavTrap::~ScavTrap() {
 };
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name) {
-		std::cout << "ScavTrap constructor called and name set" << std::endl;
+		std::cout << "ScavTrap constructor called and name" << name << " set" << std::endl;
 };
+
+ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other) {
+	std::cout << "ScavTrap copy constructor called" << std::endl;
+}
+
+ScavTrap& ScavTrap::operator=(const ScavTrap& other) {
+	std::cout << "ScavTrap copy assignment operator called" << std::endl;
+	ClapTrap::operator=(other);
+	return *this;
+}
 
 void ScavTrap::attack(const std::string& target) {
 	if (this->_hit_points <= 0) {
@@ -27,24 +37,25 @@ void ScavTrap::attack(const std::string& target) {
 	this->_energy_points--;
 }
 
-void ScavTrap::takeDamage(unsigned int amount) {
-	if (this->_hit_points > 0) {
-		std::cout << "ScavTrap " << this->_name << " takes " << amount << " damage." << std::endl;
-		this->_hit_points -= amount;
-	}
-}
+// void ScavTrap::takeDamage(unsigned int amount) {
+// 	if (this->_hit_points > 0) {
+// 		std::cout << "ScavTrap " << this->_name << " takes " << amount << " damage." << std::endl;
+// 		this->_hit_points -= amount;
+// 	}
+// }
 
-void ScavTrap::beRepaired(unsigned int amount) {
-	if (this->_energy_points <= 0) {
-		std::cout << "Cannot repair. Energy point is not enough." << std::endl;
-		return;
-	}
-	std::cout << "ScavTrap " << this->_name << " repairs itself and regains "
-			  << amount << " points!" << std::endl;
-	this->_hit_points += amount;
-	this->_energy_points--;
-}
+// void ScavTrap::beRepaired(unsigned int amount) {
+// 	if (this->_energy_points <= 0) {
+// 		std::cout << "Cannot repair. Energy point is not enough." << std::endl;
+// 		return;
+// 	}
+// 	std::cout << "ScavTrap " << this->_name << " repairs itself and regains "
+// 			  << amount << " points!" << std::endl;
+// 	this->_hit_points += amount;
+// 	this->_energy_points--;
+// }
 
 void ScavTrap::guardGate() {
-	std::cout << "ScavTrap is now in Gate keeper mode." << std::endl;
+	if (this->_hit_points > 0)
+		std::cout << "ScavTrap " << this->_name << " is now in Gate keeper mode." << std::endl;
 }

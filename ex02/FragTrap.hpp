@@ -10,12 +10,12 @@ public:
 	FragTrap();
 	FragTrap(std::string name);
 	~FragTrap();
-	FragTrap(const FragTrap& obj);
-	FragTrap& operator=(const FragTrap& obj);
+	FragTrap(const FragTrap& other);
+	FragTrap& operator=(const FragTrap& other);
 
-	void attack(const std::string& target);
-	void takeDamage(unsigned int amount);
-	void beRepaired(unsigned int amount);
+	// void attack(const std::string& target);
+	// void takeDamage(unsigned int amount);
+	// void beRepaired(unsigned int amount);
 	void highFivesGuys();
 };
 
