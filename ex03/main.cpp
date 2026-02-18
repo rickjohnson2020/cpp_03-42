@@ -7,11 +7,11 @@ int main() {
 
 	dt3 = dt2;
 
-	dt2.attack("CF");
-	dt2.whoAmI();
-	dt2.beRepaired(1000);
-	dt2.takeDamage(1);
-	dt2.highFivesGuys();
+	dt3.attack("CF");
+	dt3.whoAmI();
+	dt3.beRepaired(1000);
+	dt3.takeDamage(1);
+	dt3.highFivesGuys();
 
 	return 0;
 }

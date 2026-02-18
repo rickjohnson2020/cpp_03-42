@@ -5,7 +5,7 @@
 #include <iostream>
 #include <string>
 
-class ScavTrap : virtual public ClapTrap {
+class ScavTrap : public virtual ClapTrap {
 public:
 	ScavTrap();
 	ScavTrap(std::string name);
