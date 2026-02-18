@@ -1,7 +1,4 @@
 #include "./DiamondTrap.hpp"
-#include "ClapTrap.hpp"
-#include "FragTrap.hpp"
-#include "ScavTrap.hpp"
 
 DiamondTrap::DiamondTrap() {
 	ClapTrap::_name = "noname_clap_name";
