@@ -40,27 +40,6 @@ void DiamondTrap::attack(const std::string& target) {
 	ScavTrap::attack(target);
 }
 
-// void FragTrap::takeDamage(unsigned int amount) {
-// 	if (this->_hit_points > 0) {
-// 		std::cout << "FragTrap " << this->_name << " takes " << amount << " damage." << std::endl;
-// 	}
-// }
-
-// void FragTrap::beRepaired(unsigned int amount) {
-// 	if (this->_energy_points <= 0) {
-// 		std::cout << "Cannot repair. Energy point is not enough." << std::endl;
-// 		return;
-// 	}
-// 	std::cout << "FragTrap " << this->_name << " repairs itself and regains "
-// 			  << amount << " points!" << std::endl;
-// 	this->_hit_points += amount;
-// 	this->_energy_points--;
-// }
-
-// void FragTrap::highFivesGuys() {
-// 	std::cout << "Please!" << std::endl;
-// }
-
 void DiamondTrap::whoAmI() {
 	if (this->_hit_points > 0)
 	{

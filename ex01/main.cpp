@@ -8,8 +8,8 @@ int main() {
 	st3 = st2;
 
 	st3.attack("Simon");
-	// st3.beRepaired(1000);
-	// st3.takeDamage(1);
+	st3.beRepaired(1000);
+	st3.takeDamage(1);
 	st3.guardGate();
 
 	return 0;
