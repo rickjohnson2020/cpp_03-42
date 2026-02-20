@@ -1,11 +1,11 @@
 #include "./DiamondTrap.hpp"
 
 int main() {
-	DiamondTrap dt1("Simon");
-	DiamondTrap dt2(dt1);
+	// DiamondTrap dt1("Simon");
+	// DiamondTrap dt2(dt1);
 	DiamondTrap dt3;
 
-	dt3 = dt2;
+	// dt3 = dt2;
 
 	dt3.attack("CF");
 	dt3.whoAmI();
